@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Editor de noticias</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({selector: 'textarea'});</script>
+        <script src="js/editor.js"></script>
+    </head>
+    <body>
+
+        <form onsubmit="return insertarNoticia();">
+            <h1>Editor de noticias</h1>
+            <label for="titulo">Título de la noticia: </label>
+            <input id="titulo" type="text" required/>
+            <br><br>
+            <textarea></textarea>
+            <br><br>
+            <button type="submit">Guardar noticia</button>
+        </form>
+
+    </body>
+</html>

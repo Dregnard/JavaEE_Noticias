@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>InsertNoticia</servlet-name>
+        <servlet-class>local.noticias.servlets.InsertNoticia</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExistNoticiaBySlug</servlet-name>
+        <servlet-class>local.noticias.servlets.ExistNoticiaBySlug</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertNoticia</servlet-name>
+        <url-pattern>/InsertNoticia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExistNoticiaBySlug</servlet-name>
+        <url-pattern>/ExistNoticiaBySlug</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure Application</web-resource-name>
+            <url-pattern>/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Only Gods</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>file</realm-name>
+    </login-config>
+    <security-role>
+        <description/>
+        <role-name>Only Gods</role-name>
+    </security-role>
+</web-app>

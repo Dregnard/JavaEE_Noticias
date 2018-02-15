@@ -1,0 +1,20 @@
+#pMobile{display: none}
+#pDesktop{display: block}
+
+@media screen and (max-width: 991px){
+    #pDesktop{display: none}
+    #content-mobile{
+        position: fixed;
+        top: 0;
+        bottom: 80px;
+        width: 100vw;
+    }
+    #pMobile{
+        display: block;
+        position: fixed;
+        height: 80px;
+        width: 100vw;
+        bottom: 0;
+        background-color: aqua;
+    }
+}

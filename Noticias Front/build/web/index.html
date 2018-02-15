@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Noticias</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/noticias.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="content-mobile">
+            <!---------------------------------------------------- Jumbotron -->
+            <!-- Header of the page                                          -->
+            <!----------------------------------------------------------------->
+            <div class="jumbotron">
+                <div class="container text-center">
+                    <h1>Página de noticias</h1>
+                </div>
+            </div>
+
+            <!----------------------------------------------- Grid Skelleton -->
+            <!-- Body content of the page. List of news and publicity        -->
+            <!-- Mobile & Tablets (Auto)                                     -->
+            <!-- Desktop and higher screen resolution (8/4)                  -->
+            <!----------------------------------------------------------------->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8"> <!-- List of news -->
+                        <div class="container-fluid">
+
+                            <div class="thumbnail">
+                                <img src="..." alt="...">
+                                <div class="caption">
+                                    <a href="..."><h3>Título de la noticia</h3></a>
+                                    <p>Descripción de la noticia</p>
+                                </div>
+                            </div>
+
+                            <div class="thumbnail">
+                                <img src="..." alt="...">
+                                <div class="caption">
+                                    <a href="..."><h3>Título de la noticia</h3></a>
+                                    <p>Descripción de la noticia</p>
+                                </div>
+                            </div>
+
+                            <div class="thumbnail">
+                                <img src="..." alt="...">
+                                <div class="caption">
+                                    <a href="..."><h3>Título de la noticia</h3></a>
+                                    <p>Descripción de la noticia</p>
+                                </div>
+                            </div>
+
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4"> <!-- Publicity. Only desktop -->
+                        <div id="pDesktop">
+                            <p>Hola, esto es publicidad de escritorio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!------------------------------------------- Publicity. Only mobile -->
+        <!-- This is a fixed div 80px height at bottom of screen             -->
+        <!--------------------------------------------------------------------->
+        <div id="pMobile"> 
+            <p>Hola, esto es publicidad de móvil</p>
+        </div>
+    </body>
+</html>

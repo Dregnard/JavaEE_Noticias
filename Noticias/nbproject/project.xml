@@ -12,10 +12,6 @@
                     <path-in-war>/</path-in-war>
                 </library>
                 <library>
-                    <file>${reference.Noticias_EJB.dist-ear}</file>
-                    <path-in-war>/</path-in-war>
-                </library>
-                <library>
                     <file>${reference.Noticias_Back.dist-ear}</file>
                     <path-in-war>/</path-in-war>
                 </library>

@@ -8,6 +8,10 @@
         <servlet-name>ExistNoticiaBySlug</servlet-name>
         <servlet-class>local.noticias.servlets.ExistNoticiaBySlug</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>local.noticias.servlets.ImageServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InsertNoticia</servlet-name>
         <url-pattern>/InsertNoticia</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ExistNoticiaBySlug</servlet-name>
         <url-pattern>/ExistNoticiaBySlug</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImageServlet</servlet-name>
+        <url-pattern>/ImageServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

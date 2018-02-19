@@ -1,5 +1,6 @@
 package local.noticias.sessionbeans;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NamedQuery;
@@ -36,6 +37,23 @@ public class NoticiaFacade extends AbstractFacade<Noticia> {
         } catch (NoResultException nre) {
             return false;
         }
+    }
+
+    public Noticia getBySlug(String slug) {
+        try {
+            Query query = em.createNamedQuery("Noticia.findBySlug");
+            query.setParameter("slug", slug);
+            return (Noticia) query.getSingleResult();
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
+
+    public List<Noticia> getNoticiasByPage(int page) {
+        Query query = em.createNamedQuery("Noticia.findByPage");
+        query.setMaxResults(3);
+        query.setFirstResult((page * 3) - 3);
+        return query.getResultList();
     }
 
 }

@@ -1,7 +1,11 @@
+<%@page import="local.noticias.entities.Noticia"%>
+<%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Noticias</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -30,14 +34,20 @@
                     <div class="col-sm-8"> <!-- List of news -->
                         <div class="container-fluid">
 
+                            <%
+                                List<Noticia> noticias = (List<Noticia>) request.getAttribute("noticias");
+                                for (Noticia n : noticias) {%> 
                             <div class="thumbnail">
-                                <img src="..." alt="...">
+                                <img src="<%=n.getRutaImagenNoticia()%>" alt="..." >
                                 <div class="caption">
-                                    <a href="..."><h3>Título de la noticia</h3></a>
-                                    <p>Descripción de la noticia</p>
+                                    <a href="..."><h3><%=n.getTitulo()%></h3></a>
+                                    <p><%=n.getNoticia()%></p>
                                 </div>
-                            </div>
+                            </div><%
+                                }
+                            %>
 
+                            <!--
                             <div class="thumbnail">
                                 <img src="..." alt="...">
                                 <div class="caption">
@@ -45,14 +55,7 @@
                                     <p>Descripción de la noticia</p>
                                 </div>
                             </div>
-
-                            <div class="thumbnail">
-                                <img src="..." alt="...">
-                                <div class="caption">
-                                    <a href="..."><h3>Título de la noticia</h3></a>
-                                    <p>Descripción de la noticia</p>
-                                </div>
-                            </div>
+                            -->
 
                             <nav aria-label="...">
                                 <ul class="pagination">

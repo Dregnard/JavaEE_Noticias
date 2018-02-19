@@ -46,14 +46,17 @@ public class InsertNoticia extends HttpServlet {
         InputStream fileContent = filePart.getInputStream();
         File fRoot = new File(System.getProperty("upload.image.path"));
         File fImg = new File(fRoot, fileName);
-        Files.copy(fileContent, fImg.toPath());
+        if(!fImg.exists()){
+            Files.copy(fileContent, fImg.toPath());
+        }
         //Set data into a new "Noticia" object
         Noticia n = new Noticia();
         n.setTitulo(titulo);
         n.setNoticia(noticia);
         n.setAutor(autor);
         n.setSlug(slug);
-        n.setRutaImagenNoticia(fileName); // Relative path = System.getProperty("upload.image.path") + PathSeparator + fileName
+        // ${com.sun.aas.instanceRoot}/res/img
+        n.setRutaImagenNoticia("/Noticias_Front/img/"+fileName);
         Date timeInsert = new Date();
         n.setTimeInsert(timeInsert);
         //Insert the "Noticia" into database

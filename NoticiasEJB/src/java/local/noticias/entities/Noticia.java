@@ -37,7 +37,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Noticia.findByTitulo", query = "SELECT n FROM Noticia n WHERE n.titulo = :titulo")
     , @NamedQuery(name = "Noticia.findBySlug", query = "SELECT n FROM Noticia n WHERE n.slug = :slug")
     , @NamedQuery(name = "Noticia.findByRutaImagenNoticia", query = "SELECT n FROM Noticia n WHERE n.rutaImagenNoticia = :rutaImagenNoticia")
-    , @NamedQuery(name = "Noticia.findByTimeInsert", query = "SELECT n FROM Noticia n WHERE n.timeInsert = :timeInsert")})
+    , @NamedQuery(name = "Noticia.findByTimeInsert", query = "SELECT n FROM Noticia n WHERE n.timeInsert = :timeInsert")
+    , @NamedQuery(name = "Noticia.findByPage", query = "SELECT n FROM Noticia n ORDER BY n.timeInsert DESC")})
 public class Noticia implements Serializable {
 
     private static final long serialVersionUID = 1L;

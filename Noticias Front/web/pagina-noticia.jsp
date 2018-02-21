@@ -5,11 +5,12 @@
 <html>
     <head>
         <title>Noticias</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/noticias.css">
+
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/noticias.css" type="text/css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
@@ -40,7 +41,7 @@
                             <div class="thumbnail">
                                 <img src="<%=n.getRutaImagenNoticia()%>" alt="..." >
                                 <div class="caption">
-                                    <a href="..."><h3><%=n.getTitulo()%></h3></a>
+                                    <a href="<%="noticia?slug="+n.getSlug()%>"><h3><%=n.getTitulo()%></h3></a>
                                     <p><%=n.getNoticia()%></p>
                                 </div>
                             </div><%
@@ -57,14 +58,48 @@
                             </div>
                             -->
 
-                            <nav aria-label="...">
-                                <ul class="pagination">
-                                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                                </ul>
-                            </nav>
+                            <div class="text-center">
+                                <nav aria-label="...">
+                                    <ul class="pagination">
+                                        <%
+                                            int pagina = (Integer) request.getAttribute("paginas");
+                                            int actual = (Integer) request.getAttribute("actual");
+                                            if (actual > 1) {
+                                        %>
+                                        <li><a href="<%="/Noticias_Front/pagina?p=" + (actual - 1)%>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                            <%
+                                            } else {
+                                            %>
+                                        <li><a href="#" class="disabled" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                            <%
+                                                }
+                                            %>
 
+                                        <%
+                                            for (int i = 1; i <= pagina; i++) {
+                                                if (actual == i) {
+                                        %>
+                                        <li class="active"><a href="#"><%=i%><span class="sr-only">(current)</span></a></li>
+                                            <%
+                                            } else {
+                                            %>
+                                        <li><a href="<%="/Noticias_Front/pagina?p=" + i%>"><%=i%><span class="sr-only">(current)</span></a></li>
+                                            <%
+                                                    }
+                                                }
+                                                if (actual < pagina) {
+                                            %>
+                                        <li><a href="<%="/Noticias_Front/pagina?p=" + (actual + 1)%>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                            <%
+                                            } else {
+                                            %>
+                                        <li><a href="#" class="disabled" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                            <%
+                                                }
+                                            %>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-4"> <!-- Publicity. Only desktop -->

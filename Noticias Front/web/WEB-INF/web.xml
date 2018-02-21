@@ -19,9 +19,11 @@
     <servlet-mapping>
         <servlet-name>NoticiaSlug</servlet-name>
         <url-pattern>/NoticiaSlug</url-pattern>
+        <url-pattern>/noticia</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NoticiaPagina</servlet-name>
+        <url-pattern>/pagina</url-pattern>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <session-config>
@@ -30,6 +32,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>pagina-noticia.jsp</welcome-file>
+        <welcome-file>NoticiaPagina</welcome-file>
     </welcome-file-list>
 </web-app>
